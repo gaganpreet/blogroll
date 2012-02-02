@@ -4,7 +4,7 @@
     function display_xml_error($error, $xml)
     {
     
-		$return = '';
+        $return = '';
         switch ($error->level) {
             case LIBXML_ERR_WARNING:
                 $return .= "Warning $error->code: ";
@@ -38,14 +38,14 @@
         if (!simplexml_load_string($xml))
         {
             $errors = libxml_get_errors();
-			$error = $errors[0];
+            $error = $errors[0];
             if ($error->level != LIBXML_ERR_WARNING)
                 $return["not_fatal"] = false;
             $return["errors"] .= display_xml_error($error, $xml);
          }
 
         libxml_clear_errors();
-		curl_close($ch);
+        curl_close($ch);
         return $return;
     }
 

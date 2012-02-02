@@ -11,11 +11,11 @@
     <![endif]-->
 
     <!-- Le styles -->
-<!--	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css"> -->
-	<link rel="stylesheet" href="bootstrap.min.css"> 
-	<link rel="stylesheet" href="bootstrap.min.responsive.css"> 
+<!--    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="bootstrap.min.css"> 
+    <link rel="stylesheet" href="bootstrap.min.responsive.css"> 
     <link rel="alternate" title="IIIT Blogroll RSS" href="rss.php" type="application/rss+xml">
-	<link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="custom.css">
     <style type="text/css">
       body {
         padding-top: 60px;
