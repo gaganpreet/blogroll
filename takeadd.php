@@ -16,11 +16,12 @@ function error_redirect($message)
     header('Location: add.php?' . http_build_query($_POST) . '&error_message=' . $message);
 }
 
-
-$resp->is_valid = true;
-if (!$resp->is_valid) {
+if (!$resp->is_valid) 
+{
     error_redirect('Wrong captcha');
-} else {
+} 
+else 
+{
     $xml = load_and_verify_xml($_POST["feed_url"]);
     if ($xml["not_fatal"] )
     {
