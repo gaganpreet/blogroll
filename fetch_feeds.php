@@ -1,5 +1,5 @@
 <?php
-    require_once('simplepie.inc');
+    require_once('lib/simplepie.inc');
     include_once('config.inc.php');
 
     $blogs = json_decode(file_get_contents($db_file));

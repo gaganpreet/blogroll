@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="bootstrap.min.css"> 
     <link rel="stylesheet" href="bootstrap.min.responsive.css"> 
     <link rel="alternate" title="IIIT Blogroll RSS" href="rss.php" type="application/rss+xml">
-    <link rel="stylesheet" href="custom.css">
     <style type="text/css">
       body {
         padding-top: 60px;

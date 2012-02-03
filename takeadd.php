@@ -1,5 +1,5 @@
 <?php
-require_once('recaptchalib.php');
+require_once('lib/recaptchalib.php');
 require_once('recaptchakey.php');
 require_once('config.inc.php');
 require_once('validate_xml.php');
@@ -13,7 +13,8 @@ $resp = recaptcha_check_answer ($privatekey,
 
 function error_redirect($message)
 {
-    header('Location: add.php?' . http_build_query($_POST) . '&error_message=' . $message);
+    $_POST["error_message"] = $message;
+    header('Location: add.php?' . http_build_query($_POST));
 }
 
 if (!$resp->is_valid) 
@@ -23,17 +24,18 @@ if (!$resp->is_valid)
 else 
 {
     $xml = load_and_verify_xml($_POST["feed_url"]);
-    if ($xml["not_fatal"] )
+    if ($xml["success"] )
     {
         if (!file_exists($db_file))
         {
-            $entries = "[]";
+            $entries = "{}";
         }
         else
         {
             $entries = file_get_contents($db_file);
         }
         $array = json_decode($entries);
+print("Here");
         
         if (isset($array->$_POST["feed_url"]))
         {

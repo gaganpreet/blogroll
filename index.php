@@ -37,6 +37,7 @@
             <th style="width: 70%"><h3>Latest post</h3></th>
           </tr>
         </thead>
+
         <?php
             $fp = fopen($csv_file, "r");
             if (isset($_GET['count']))
@@ -50,21 +51,19 @@
         <tr>
             <td>
             <?php
+                    $i = $i + 1;
                     list($pubDate, $title, $link, $desc, $blog_name, $blog_url, $author, $email, $batch, $blog_desc)
                         = $data;
                     echo "<a href='$blog_url'><h4>$blog_name</h4></a><br />by <a href='mailto:$email'>$author</a> ($batch)<br />$blog_desc";
-                    $i = $i + 1;
             ?>
             </td>
             <td>
                     <?php echo "<a href='$link'><h4>$title</h4></a><br />$desc"; ?>
             </td>
         </tr>
-        <?php
-            }    
-        ?>
 
         <?php
+            }    
             fclose($fp);
         ?>
     </table>

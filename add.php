@@ -77,8 +77,8 @@
                     <label for="captcha">Verify:</label>
                     <div class="controls">
                             <?php
-                                  require_once('recaptchalib.php');
-                                    $publickey = "6LdznMwSAAAAACbg4LKzg6_dKjg6i9c7caJuAyLM";
+                                  require_once('lib/recaptchalib.php');
+                                    $publickey = "6LfRKM0SAAAAADLEwnXz1NnQNl9oX3QdRHndOLS6";
                                   echo recaptcha_get_html($publickey);
                             ?>
                 </div>

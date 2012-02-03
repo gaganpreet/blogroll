@@ -30,7 +30,7 @@
     <div class="container">
     <div class="span8">
 
-        IIIT Blogroll is an aggregation of all blogs related to IIIT-H built using <a href="http://simplepie.org/">SimplePie</a>, <a href="http://twitter.github.com/bootstrap/index.html">Bootstrap</a>. <br />
+        IIIT Blogroll is an aggregation of all blogs related to IIIT-H built using <a href="http://simplepie.org/">SimplePie</a>, <a href="http://twitter.github.com/bootstrap/index.html">Bootstrap</a>. Originally inspired by <a href="http://web.iiit.ac.in/~smr/blogroll">smr's blogroll</a><br />
 
         <br />
         Something is missing? <a href="https://github.com/gaganpreet/blogroll">Fork on github</a>, send pull requests or report issues.

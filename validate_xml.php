@@ -1,51 +1,24 @@
 <?php
-    libxml_use_internal_errors(true);
+    
+    require_once('lib/simplepie.inc');
 
-    function display_xml_error($error, $xml)
-    {
-    
-        $return = '';
-        switch ($error->level) {
-            case LIBXML_ERR_WARNING:
-                $return .= "Warning $error->code: ";
-                break;
-             case LIBXML_ERR_ERROR:
-                $return .= "Error $error->code: ";
-                break;
-            case LIBXML_ERR_FATAL:
-                $return .= "Fatal Error $error->code: ";
-                break;
-        }
-    
-        $return .= trim($error->message) .
-                   "(Line $error->line," .
-                   " Column: $error->column)";
-    
-        return htmlentities($return) . "<br />";
-    }
-    
     function load_and_verify_xml($url)
     {
+        $feed = new SimplePie();
+        $feed->set_feed_url($url);
+        $feed->init();
+        $feed->handle_content_type();
+
         $return = Array();
 
         $return["errors"] = "";
-        $return["not_fatal"] = true;
+        $return["success"] = true;
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $xml = curl_exec ($ch);
-        if (!simplexml_load_string($xml))
+        if ($feed->error())
         {
-            $errors = libxml_get_errors();
-            $error = $errors[0];
-            if ($error->level != LIBXML_ERR_WARNING)
-                $return["not_fatal"] = false;
-            $return["errors"] .= display_xml_error($error, $xml);
-         }
-
-        libxml_clear_errors();
-        curl_close($ch);
+            $return["errors"] = $feed->error();
+            $return["success"] = false;
+        }
         return $return;
     }
 
