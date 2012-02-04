@@ -29,7 +29,11 @@
 
     <div class="container">
     <div class="span12">
-
+    <?php if ($_GET["message"]) echo "<div class='alert alert-success'>" . $_GET["message"] . "</div>"; ?>
+    
+    <div class="span8">
+        <a href="index.php?count=all">View all blogs</a>
+    </div>
     <table class="table table-striped">
         <thead>
           <tr>
@@ -41,7 +45,10 @@
         <?php
             $fp = fopen($csv_file, "r");
             if (isset($_GET['count']))
-                $count = intval($_GET['count']);
+            {
+                if ($_GET["count"] == 'all') $count = 9999;
+                else $count = intval($_GET['count']);
+            }
             else
                 $count = 10;
             $i = 0;

@@ -35,7 +35,6 @@ else
             $entries = file_get_contents($db_file);
         }
         $array = json_decode($entries);
-print("Here");
         
         if (isset($array->$_POST["feed_url"]))
         {
