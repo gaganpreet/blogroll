@@ -10,11 +10,13 @@ $resp = recaptcha_check_answer ($privatekey,
                               $_POST["recaptcha_response_field"]);
     unset($_POST['recaptcha_challenge_field']);
     unset($_POST['recaptcha_response_field']);
+    unset($_POST['error_message']);
 
 function error_redirect($message)
 {
     $_POST["error_message"] = $message;
     header('Location: add.php?' . http_build_query($_POST));
+    die();
 }
 
 if (!$resp->is_valid) 
@@ -48,6 +50,7 @@ else
         fclose($fh);
         
         header('Location: index.php?message=Feed successfully inserted');
+        die();
     }
     else
     {
