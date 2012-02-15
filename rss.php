@@ -1,4 +1,5 @@
 <?php
+    header("Content-Type: text/xml");
     require_once('config.inc.php'); 
     echo("<?"); ?>xml version='1.0' encoding='UTF-8'?>
 <rss version='2.0'>
@@ -10,7 +11,6 @@
 <language>en-us</language>
 
 <?php
-    header("Content-Type: text/xml");
     $fp = fopen($csv_file, "r");
     if (isset($_GET['count']))
         $count = intval($_GET['count']);

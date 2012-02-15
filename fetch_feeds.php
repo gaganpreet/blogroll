@@ -20,10 +20,12 @@
         $feed->enable_cache(true);
         $feed->set_cache_location('cache');
         $feed->set_cache_duration(3600);
+        $feed->strip_htmltags(array_merge($feed->strip_htmltags, array('div', 'span', 'img')));
 
         $feed->set_item_limit(1);
         $feed->init();
         $feed->handle_content_type();
+
 
         $fp = fopen($csv_file . "_new", 'w');
         foreach ($feed->get_items() as $item)

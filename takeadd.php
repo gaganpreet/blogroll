@@ -49,12 +49,13 @@ else
         fwrite($fh, json_encode($array));
         fclose($fh);
         
-        header('Location: index.php?message=Feed successfully inserted');
+        header('Location: index.php?message=Feed successfully inserted. Feed updates will appear in the list at end of every hour.');
         die();
     }
     else
     {
-        error_redirect("Failed to parse feed! <br />" . $xml["errors"]);
+        $_POST["feed_url"] = $xml["feed_url"];
+        error_redirect("There's a problem with your feed! <br />" . $xml["errors"]);
     }
 
 }
