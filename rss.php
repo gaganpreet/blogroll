@@ -21,6 +21,7 @@
     {
         list($pubDate, $title, $link, $desc, $blog_name, $blog_url, $author, $email, $batch, $blog_desc)
             = $data;
+        $desc = htmlspecialchars($desc);
         $i = $i + 1;
         echo "<item><title>$title</title><link>$link</link>\n<description>$desc</description></item>\n\n";
     }    
