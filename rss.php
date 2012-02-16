@@ -1,6 +1,8 @@
 <?php
     header("Content-Type: text/xml");
     require_once('config.inc.php'); 
+    $now = date("D, d M Y H:i:s T");
+
     echo("<?"); ?>xml version='1.0' encoding='UTF-8'?>
 <rss version='2.0'>
 <channel>
@@ -9,6 +11,8 @@
 <link>http://web.iiit.ac.in/~gaganpreet/blogroll</link>
 <description>IIIT Blogroll</description>
 <language>en-us</language>
+<pubDate><?php echo $now; ?></pubDate>
+<lastBuildDate><?php echo $now; ?></lastBuildDate>
 
 <?php
     $fp = fopen($csv_file, "r");
@@ -23,7 +27,8 @@
             = $data;
         $desc = htmlspecialchars($desc);
         $i = $i + 1;
-        echo "<item><title>$title</title><link>$link</link>\n<description>$desc</description></item>\n\n";
+        $date = date("D, d M Y H:i:s T", $pubDate);
+        echo "<item><title>$title</title><link>$link</link><pubDate>$date</pubDate></item>\n<description>$desc</description>\n\n";
     }    
 
     fclose($fp);
