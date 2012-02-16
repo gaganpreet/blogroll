@@ -1,5 +1,5 @@
 <?php
-    header("Content-Type: text/xml");
+    header("Content-Type: application/rss+xml");
     require_once('config.inc.php'); 
     $now = date("D, d M Y H:i:s T");
 
@@ -28,7 +28,7 @@
         $desc = htmlspecialchars($desc);
         $i = $i + 1;
         $date = date("D, d M Y H:i:s T", $pubDate);
-        echo "<item><title>$title</title><link>$link</link><pubDate>$date</pubDate>\n<description>$desc</description></item>\n\n";
+        echo "<item><title>$title</title><link>$link</link><guid>$link</guid><pubDate>$date</pubDate>\n<description>$desc</description></item>\n\n";
     }    
 
     fclose($fp);
