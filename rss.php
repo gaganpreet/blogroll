@@ -28,7 +28,7 @@
         $desc = htmlspecialchars($desc);
         $i = $i + 1;
         $date = date("D, d M Y H:i:s T", $pubDate);
-        echo "<item><title>$title</title><link>$link</link><pubDate>$date</pubDate></item>\n<description>$desc</description>\n\n";
+        echo "<item><title>$title</title><link>$link</link><pubDate>$date</pubDate>\n<description>$desc</description></item>\n\n";
     }    
 
     fclose($fp);
